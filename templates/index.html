@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multiplication Table</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://slidechef.net/wp-content/uploads/2023/10/Math-Background-768x432.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.9); /* semi-transparent for readability */
+      padding: 2rem;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      width: 90%;
+      max-width: 420px;
+    }
+
+    .title {
+      font-family: 'Pacifico', cursive;
+      color: #333;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    input[type="number"] {
+      padding: 0.7rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 80%;
+      margin: 1rem 0;
+      text-align: center;
+    }
+
+    button {
+      padding: 0.7rem 1.5rem;
+      background: #5c67f2;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #4a54e1;
+    }
+
+    .output-section {
+      margin-top: 1.5rem;
+      text-align: left;
+      padding: 1rem;
+      background: #f9f9f9;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Multiplication Table Generator</h1>
+    <form method="POST">
+      <input type="number" name="number" placeholder="Enter a number" required>
+      <br>
+      <button type="submit">Generate Table</button>
+    </form>
+    
+    {% if num is not none %}
+    <div class="output-section">
+      <h3>Table of {{ num }}</h3>
+      {% for row in table %}
+        <p>{{ row }}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
